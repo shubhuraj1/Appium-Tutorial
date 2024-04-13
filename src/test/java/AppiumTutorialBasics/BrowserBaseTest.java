@@ -18,7 +18,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-public class BaseTest {
+public class BrowserBaseTest {
 
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
@@ -33,9 +33,9 @@ public class BaseTest {
 
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("TestPhone");
+
         options.setChromedriverExecutable("C:\\Users\\mohit\\Downloads\\Compressed\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-        //options.setApp("C:\\Users\\mohit\\Java Projects\\AppiumTutorial\\src\\test\\java\\resources\\ApiDemos-debug.apk");
-        options.setApp("C:\\Users\\mohit\\Java Projects\\AppiumTutorial\\src\\test\\java\\resources\\General-Store.apk");
+        options.setCapability("browserName", "Chrome");
 
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(),options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
